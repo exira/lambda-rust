@@ -98,8 +98,8 @@ You can take a look at an example [here](./tests/test-func-with-hooks).
 
 ## 🔬 Local testing
 
-Once you've built a Rust lambda function artifact, the `provided.al2-arm64` runtime expects deployments of that artifact to be named "**bootstrap**".
-The `lambda-rust` docker image builds a zip file, named after the binary, containing your binary file renamed to "bootstrap" for you,
+Once you've built a Rust lambda function artifact, the `provided.al2-arm64` runtime expects deployments of that artifact to be named `bootstrap`.
+The `lambda-rust` docker image builds a zip file, named after the binary, containing your binary file renamed to `bootstrap` for you,
 but zip file creation is unnecessary for local development.
 
 In order to prevent the creation of an intermediate `.zip` artifact when testing your lambdas locally, pass `-e PACKAGE=false` during the build.
@@ -149,30 +149,5 @@ $ docker container stop lambda
 ```
 
 You may submit multiple events to the same container.
-
-## 🤸🤸 Usage via cargo aws-lambda subcommand
-
-A third party cargo subcommand exists to compile your code into a zip file and deploy it. This comes with only
-rust and docker as dependencies.
-
-Setup
-
-```sh
-$ cargo install cargo-aws-lambda
-```
-
-To compile and deploy in your project directory
-
-```sh
-$ cargo aws-lambda {your aws function's full ARN} {your-binary-name}
-```
-
-To list all options
-
-```sh
-$ cargo aws-lambda --help
-```
-
-More instructions can be found [here](https://github.com/vvilhonen/cargo-aws-lambda).
 
 Doug Tangren ([softprops](https://github.com/softprops)) 2020, Alexander Zaitsev ([zamazan4ik](https://github.com/zamazan4ik)) 2021
