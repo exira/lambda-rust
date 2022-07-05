@@ -6,28 +6,35 @@ on:
      - published
 
 jobs:
-  publish-docs:
+   publish:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
-      - name: Update Docker hub metadata
-        uses: docker://mpepping/docker-hub-metadata-github-action
-        env:
-          IMAGE: rustserverless/lambda-rust
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        continue-on-error: true
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-      - name: Build
+        uses: docker/setup-qemu-action@v2
+        with:
+          platforms: arm64
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        with:
+          version: latest
+
+      - name: Build Image
         shell: bash
-        run: make build && make build-arm64
-      - name: Publish
+        run: make build-arm64
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish Image
         shell: bash
         run: |
-          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-          make publish-tag && make publish-tag-arm64
+          make publish-tag-arm64

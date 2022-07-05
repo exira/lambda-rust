@@ -1,7 +1,7 @@
 DOCKER ?= docker
 INPUT_RELEASE_VERSION ?= 0.4.0
 RUST_VERSION ?= 1.61.0
-REPO ?= rustserverless/lambda-rust
+REPO ?= ghcr.io/exira/lambda-rust
 TAG ?= latest
 
 publish: build
@@ -32,11 +32,11 @@ debug: build
 		-u $(id -u):$(id -g) \
 		-v ${PWD}:/code:Z \
 		-v ${HOME}/.cargo/registry:/cargo/registry \
-		-v ${HOME}/.cargo/git:/cargo/git  \
+		-v ${HOME}/.cargo/git:/cargo/git \
 		--entrypoint=/bin/bash \
-		$(REPO):$(TAG)
+		$(REPO):$(TAG)-arm64
 
-check: 
+check:
 	$(DOCKER) run --rm \
 		--entrypoint=/usr/local/bin/latest.sh \
-		$(REPO)
+		$(REPO):$(TAG)-arm64
