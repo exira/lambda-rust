@@ -1,6 +1,6 @@
 FROM public.ecr.aws/lambda/provided:al2
 
-ARG RUST_VERSION=1.61.0
+ARG RUST_VERSION=1.62.0
 
 RUN yum install -y jq openssl-devel gcc zip dos2unix
 
