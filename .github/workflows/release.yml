@@ -1,6 +1,7 @@
-name: Release publishing
+name: Build Release Rust
 
 on:
+  workflow_dispatch:
   release:
     types:
      - published
