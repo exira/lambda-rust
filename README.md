@@ -2,7 +2,7 @@
 
 ## 🤔 About
 
-This docker image extends AWS Lambda `provided.al2-arm64` runtime environment, and installs [rustup](https://rustup.rs/) and the *stable* rust toolchain.
+This docker image extends AWS Lambda `provided.al2-arm64` runtime environment, and installs [rustup](https://rustup.rs/) and the `stable` rust toolchain.
 
 This provides a build environment, consistent with your target execution environment for predictable results.
 

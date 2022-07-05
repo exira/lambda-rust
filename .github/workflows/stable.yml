@@ -71,4 +71,4 @@ jobs:
       - name: Create Error Issue
         run: gh issue create --title "Stable publication failed" --body "Stable publication failed" --label "bug" -R $GITHUB_REPOSITORY
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
