@@ -108,7 +108,7 @@ You will see both `bootstrap` and `bootstrap.debug` files there.
 
 > **⚠️ Note:** `PACKAGE=false` prevents `package` hook from running.
 
-You can then invoke this bootstrap executable for the `provided.al2-arm64` AWS lambda runtime with a one off container.
+You can then invoke this `bootstrap` executable for the `provided.al2-arm64` AWS lambda runtime with a one off container.
 
 ```sh
 # Build your function skipping the zip creation step
@@ -150,4 +150,4 @@ $ docker container stop lambda
 
 You may submit multiple events to the same container.
 
-Doug Tangren ([softprops](https://github.com/softprops)) 2020, Alexander Zaitsev ([zamazan4ik](https://github.com/zamazan4ik)) 2021
+Doug Tangren ([softprops](https://github.com/softprops)) 2020, Alexander Zaitsev ([zamazan4ik](https://github.com/zamazan4ik)) 2021, [exira.com](https://exira.com/) 2022
