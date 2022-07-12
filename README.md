@@ -150,4 +150,12 @@ $ docker container stop lambda
 
 You may submit multiple events to the same container.
 
+## 🛠️ Maintenance
+
+Every Wednesday we run an automated action to check if Rust is still up to date.
+
+If it isn't, a [pull request](https://github.com/exira/lambda-rust/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc) gets created.
+
+## ⚖️ Copyright
+
 Doug Tangren ([softprops](https://github.com/softprops)) 2020, Alexander Zaitsev ([zamazan4ik](https://github.com/zamazan4ik)) 2021, [exira.com](https://exira.com/) 2022
