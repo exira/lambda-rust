@@ -1,6 +1,6 @@
 DOCKER ?= docker
 INPUT_RELEASE_VERSION ?= 0.4.0
-RUST_VERSION ?= 1.62.0
+RUST_VERSION ?= 1.63.0
 REPO ?= ghcr.io/exira/lambda-rust
 TAG ?= latest
 
